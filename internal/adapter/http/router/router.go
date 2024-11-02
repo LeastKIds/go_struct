@@ -5,9 +5,13 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func Router(e *echo.Echo) {
+type RouterStruct struct {
+	dummyRouter dummyRouter.IDummyRouter
+}
+
+func (rs *RouterStruct) Router(e *echo.Echo) {
 	dummyGroup := e.Group("/dummy")
 	{
-		dummyRouter.Router(dummyGroup)
+		rs.dummyRouter.Router(dummyGroup)
 	}
 }

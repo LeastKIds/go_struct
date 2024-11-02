@@ -1,9 +1,22 @@
 package dummy
 
-import "github.com/labstack/echo/v4"
+import (
+	handler "github.com/LeastKIds/go_struct/internal/adapter/http/handler/dummy"
+	"github.com/labstack/echo/v4"
+)
 
-func Router(g *echo.Group) {
-	g.GET("", func(c echo.Context) error {
-		return c.String(200, "Dummy")
-	})
+type IDummyRouter interface {
+	Router(g *echo.Group)
+}
+
+type DummyRouter struct {
+	dummyHandler handler.IDummyHandler
+}
+
+func NewDummyRouter(dh handler.IDummyHandler) *DummyRouter {
+	return &DummyRouter{dummyHandler: dh}
+}
+
+func (dr *DummyRouter) Router(g *echo.Group) {
+	g.GET("", dr.dummyHandler.GetDummy)
 }
