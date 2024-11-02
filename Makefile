@@ -22,6 +22,9 @@ db-reset-local: ## 데이터베이스 리셋(로컬에 go가 설치되어있으�
 	make db-migrate-local
 	make db-seed-local
 
+env-local: ## 환경변수 설정(로컬에 go가 설치되어있으면)
+	go run ./cmd/env/main.go
+
 docker-down: ## 도커 컨테이너 종료
 	docker compose -f ./docker/compose.yml down
 
