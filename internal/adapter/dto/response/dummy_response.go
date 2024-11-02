@@ -1,4 +1,4 @@
-package dto
+package response
 
 type Dummy struct {
 	ID   int64  `json:"id"`
