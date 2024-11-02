@@ -1,0 +1,1 @@
+- model과 entity간의 데이터 변환 로직
