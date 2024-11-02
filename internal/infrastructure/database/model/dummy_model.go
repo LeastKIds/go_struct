@@ -1,7 +1,9 @@
 package model
 
+import "github.com/LeastKIds/go_struct/internal/domain/vo"
+
 type Dummy struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
-	Age  int    `json:"age"`
+	ID   vo.ID   `json:"id"`
+	Name vo.Name `json:"name"`
+	Age  vo.Age  `json:"age"`
 }
