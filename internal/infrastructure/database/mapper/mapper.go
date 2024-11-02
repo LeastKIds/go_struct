@@ -1,11 +1,11 @@
 package mapper
 
 type InfrastructureMapper struct {
-	iInfrastructureDummyMapper IInfrastructureDummyMapper
+	InfrastructureDummyMapper IInfrastructureDummyMapper
 }
 
 func NewInfrastructureMapper(iInfrastructureDummyMapper IInfrastructureDummyMapper) *InfrastructureMapper {
 	return &InfrastructureMapper{
-		iInfrastructureDummyMapper: iInfrastructureDummyMapper,
+		InfrastructureDummyMapper: iInfrastructureDummyMapper,
 	}
 }
