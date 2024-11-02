@@ -11,9 +11,9 @@ func start() {
 
 	v1 := e.Group("/v1")
 
-	auth := v1.Group("/auth")
+	test := v1.Group("/test")
 	{
-		authRoutes.Routes(auth)
+		testRoutes.Router(test)
 	}
 
 	e.Logger.Fatal(e.Start(":8080"))
