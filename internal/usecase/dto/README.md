@@ -1,1 +1,1 @@
-- adapter와의 데이터 교환을 위한 DTO 정의
+- domain과의 데이터 교환을 위한 DTO 정의
