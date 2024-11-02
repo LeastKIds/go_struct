@@ -1,8 +1,13 @@
 package server
 
-import "github.com/labstack/echo/v4"
+import (
+	"github.com/LeastKIds/go_struct/internal/infrastructure/config"
+	"github.com/labstack/echo/v4"
+)
 
 func Server() {
+	config.Set()
+
 	e := echo.New()
 
 	e.GET("/", func(c echo.Context) error {

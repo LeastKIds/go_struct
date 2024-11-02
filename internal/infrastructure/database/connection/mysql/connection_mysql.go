@@ -5,7 +5,7 @@ import (
 	"gorm.io/gorm"
 )
 
-const dsn = "user:password@tcp(localhost:3306)/go_struct_db?charset=utf8mb4&parseTime=True&loc=Local"
+const dsn = "user:password@tcp(localhost:3306)/go_struct?charset=utf8mb4&parseTime=True&loc=Local"
 
 type Mysql struct{}
 
