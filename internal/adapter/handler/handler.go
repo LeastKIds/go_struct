@@ -1,7 +1,11 @@
 package handler
 
-type Handler struct{}
+import "github.com/LeastKIds/go_struct/internal/adapter/handler/dummy"
 
-func NewHandler() *Handler {
-	return &Handler{}
+type Handler struct {
+	Dummy dummy.IDummyHandler
+}
+
+func NewHandler(dummy dummy.IDummyHandler) *Handler {
+	return &Handler{Dummy: dummy}
 }

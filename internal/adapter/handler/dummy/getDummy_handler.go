@@ -20,4 +20,6 @@ func (h *DummyHandler) GetDummy(c echo.Context) error {
 	if err != nil {
 		return err
 	}
+
+	return c.JSON(200, h.mapper.AdapterDummyMapper.ToResponse(dummy))
 }
