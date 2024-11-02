@@ -1,6 +1,7 @@
 package interactor
 
-type Interactor struct{}
+type Interactor struct {
+}
 
 func NewInteractor() *Interactor {
 	return &Interactor{}
