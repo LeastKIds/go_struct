@@ -12,9 +12,9 @@ type IDummyHandler interface {
 
 type DummyHandler struct {
 	InteractorDummy dummy.IInteractorDummy
-	mapper          mapper.AdapterMapper
+	mapper          mapper.IAdapterDummyMapper
 }
 
-func NewDummyHandler(interactorDummy dummy.IInteractorDummy, mapper mapper.AdapterMapper) *DummyHandler {
+func NewDummyHandler(interactorDummy dummy.IInteractorDummy, mapper mapper.IAdapterDummyMapper) *DummyHandler {
 	return &DummyHandler{InteractorDummy: interactorDummy, mapper: mapper}
 }

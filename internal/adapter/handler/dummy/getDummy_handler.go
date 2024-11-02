@@ -21,5 +21,5 @@ func (h *DummyHandler) GetDummy(c echo.Context) error {
 		return err
 	}
 
-	return c.JSON(200, h.mapper.AdapterDummyMapper.ToResponse(dummy))
+	return c.JSON(200, h.mapper.ToResponse(dummy))
 }
