@@ -1,0 +1,3 @@
+- 데이터베이스 인터페이스
+- 여기서 함수 구현은 하지 않음
+- 함수 구현은 infrastructure/database/repository 에 구현
