@@ -1,6 +1,9 @@
 package server
 
-import "github.com/labstack/echo/v4"
+import (
+	testRoutes "github.com/LeastKIds/go_struct/internal/adapter/http/router/test"
+	"github.com/labstack/echo/v4"
+)
 
 func Server() {
 	start()
