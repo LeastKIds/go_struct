@@ -9,11 +9,11 @@ import (
 )
 
 type DummyRepository struct {
-	infrastructureMapper mapper.InfrastructureMapper
+	infrastructureDummyMapper mapper.IInfrastructureDummyMapper
 }
 
-func NewDummyRepository(infrastructureMapper mapper.InfrastructureMapper) *DummyRepository {
-	return &DummyRepository{infrastructureMapper: infrastructureMapper}
+func NewDummyRepository(infrastructureMapper mapper.IInfrastructureDummyMapper) *DummyRepository {
+	return &DummyRepository{infrastructureDummyMapper: infrastructureMapper}
 }
 
 func (r *DummyRepository) FindBy(db *gorm.DB, scopes ...repository.Scope) (*entity.Dummy, error) {
@@ -22,11 +22,11 @@ func (r *DummyRepository) FindBy(db *gorm.DB, scopes ...repository.Scope) (*enti
 		return nil, err
 	}
 
-	return r.infrastructureMapper.InfrastructureDummyMapper.ToEntity(&model), nil
+	return r.infrastructureDummyMapper.ToEntity(&model), nil
 }
 
 func (r *DummyRepository) Create(db *gorm.DB, entity *entity.Dummy) error {
-	model := r.infrastructureMapper.InfrastructureDummyMapper.ToModel(entity)
+	model := r.infrastructureDummyMapper.ToModel(entity)
 	if err := db.Create(model).Error; err != nil {
 		return err
 	}
