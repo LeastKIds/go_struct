@@ -26,3 +26,11 @@ func (m *DummyMapper) ToEntity(model *model.Dummy) *entity.Dummy {
 		Age:  model.Age,
 	}
 }
+
+func (m *DummyMapper) ToEntities(models *[]model.Dummy) *[]entity.Dummy {
+	var entities []entity.Dummy
+	for _, model := range *models {
+		entities = append(entities, *m.ToEntity(&model))
+	}
+	return &entities
+}
