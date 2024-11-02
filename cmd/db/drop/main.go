@@ -1,9 +1,13 @@
 package main
 
-import "github.com/LeastKIds/go_struct/internal/infrastructure/database/connection"
+import (
+	"github.com/LeastKIds/go_struct/internal/infrastructure/config"
+	"github.com/LeastKIds/go_struct/internal/infrastructure/database/connection"
+)
 
 func main() {
-	db, err := connection.NewConnection().Connect()
+	config := config.NewConfig()
+	db, err := connection.NewConnection(config.DATABASE_URL).Connect()
 	if err != nil {
 		panic(err)
 	}

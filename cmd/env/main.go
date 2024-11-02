@@ -27,5 +27,17 @@ func main() {
 		fmt.Println("write file err:", err)
 		panic(err)
 	}
+	if err := os.WriteFile("./cmd/db/drop/.env", []byte(envContent), 0o644); err != nil {
+		fmt.Println("write file err:", err)
+		panic(err)
+	}
+	if err := os.WriteFile("./cmd/db/migrate/.env", []byte(envContent), 0o644); err != nil {
+		fmt.Println("write file err:", err)
+		panic(err)
+	}
+	if err := os.WriteFile("./cmd/db/seed/.env", []byte(envContent), 0o644); err != nil {
+		fmt.Println("write file err:", err)
+		panic(err)
+	}
 
 }

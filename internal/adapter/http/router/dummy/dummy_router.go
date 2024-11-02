@@ -18,5 +18,5 @@ func NewDummyRouter(dh handler.IDummyHandler) *DummyRouter {
 }
 
 func (dr *DummyRouter) Router(g *echo.Group) {
-	g.GET("", dr.dummyHandler.GetDummy)
+	g.GET("/:id", dr.dummyHandler.GetDummy)
 }

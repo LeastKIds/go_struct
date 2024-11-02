@@ -14,6 +14,6 @@ type DummyInteractor struct {
 	DummyRepo repository.Repo[entity.Dummy]
 }
 
-func NewDummy(repo repository.Repo[entity.Dummy]) *DummyInteractor {
+func NewDummyInteractor(repo repository.Repo[entity.Dummy]) *DummyInteractor {
 	return &DummyInteractor{DummyRepo: repo}
 }

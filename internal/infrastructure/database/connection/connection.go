@@ -9,6 +9,8 @@ type IConnection interface {
 	Connect() (*gorm.DB, error)
 }
 
-func NewConnection() IConnection {
-	return mysql.NewMysql()
+type Connection struct{ dsn string }
+
+func NewConnection(dsn string) IConnection {
+	return mysql.NewMysql(dsn)
 }

@@ -5,16 +5,14 @@ import (
 	"gorm.io/gorm"
 )
 
-const dsn = "user:password@tcp(localhost:3306)/go_struct?charset=utf8mb4&parseTime=True&loc=Local"
+type Mysql struct{ dsn string }
 
-type Mysql struct{}
-
-func NewMysql() *Mysql {
-	return &Mysql{}
+func NewMysql(dsn string) *Mysql {
+	return &Mysql{dsn: dsn}
 }
 
 func (m *Mysql) Connect() (*gorm.DB, error) {
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open(m.dsn), &gorm.Config{})
 	if err != nil {
 		return nil, err
 	}

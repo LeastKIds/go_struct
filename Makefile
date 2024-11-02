@@ -2,20 +2,20 @@
 .DEFAULT_GOAL := help
 
 up: ## 서버 실행
-	go run ./cmd/app/main.go
+	ENV=development go run ./cmd/app/main.go
 
 db: ## 데이터베이스 실행
 	make docker-down
 	docker compose -f ./docker/compose.yml up
 
 db-drop-local: ## 데이터베이스 삭제(로컬에 go가 설치되어있으면)
-	go run ./cmd/db/drop/main.go
+	ENV=development go run ./cmd/db/drop/main.go
 
 db-migrate-local: ## 데이터베이스 마이그레이션(로컬에 go가 설치되어있으면)
-	go run ./cmd/db/migrate/main.go
+	ENV=development go run ./cmd/db/migrate/main.go
 
 db-seed-local: ## 데이터베이스 시드(로컬에 go가 설치되어있으면)
-	go run ./cmd/db/seed/main.go
+	ENV=development go run ./cmd/db/seed/main.go
 
 db-reset-local: ## 데이터베이스 리셋(로컬에 go가 설치되어있으면)
 	make db-drop-local

@@ -9,6 +9,12 @@ type RouterStruct struct {
 	dummyRouter dummyRouter.IDummyRouter
 }
 
+func NewRouter(dummyRouter dummyRouter.IDummyRouter) RouterStruct {
+	return RouterStruct{
+		dummyRouter: dummyRouter,
+	}
+}
+
 func (rs *RouterStruct) Router(e *echo.Echo) {
 	dummyGroup := e.Group("/dummy")
 	{

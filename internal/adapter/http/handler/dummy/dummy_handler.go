@@ -13,6 +13,6 @@ type DummyHandler struct {
 	dummyUsecase interactor.IDummyInteractor
 }
 
-func NewDummy(du interactor.IDummyInteractor) *DummyHandler {
+func NewDummyHandler(du interactor.IDummyInteractor) *DummyHandler {
 	return &DummyHandler{dummyUsecase: du}
 }
