@@ -5,6 +5,11 @@ import (
 	"github.com/LeastKIds/go_struct/internal/infrastructure/database/model"
 )
 
+type IInfrastructureDummyMapper interface {
+	ToEntity(model *model.Dummy) *entity.Dummy
+	ToModel(entity *entity.Dummy) *model.Dummy
+}
+
 type InfrastructureDummyMapper struct{}
 
 func NewInfrastructureDummyMapper() *InfrastructureDummyMapper {
