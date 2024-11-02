@@ -1,4 +1,0 @@
-- 값 객체(value objects)를 정의
-- ex) 같은 string 값이지만 email과 이름은 다른 뜻을 의미
-- type Email string
-- type Name string

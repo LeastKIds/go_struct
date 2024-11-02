@@ -1,1 +1,0 @@
-- domain의 repository의 interface 함수 구현
