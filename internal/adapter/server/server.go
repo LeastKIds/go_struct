@@ -6,7 +6,7 @@ import (
 )
 
 func Server() {
-	config.Set()
+	config := config.NewConfig()
 
 	e := echo.New()
 

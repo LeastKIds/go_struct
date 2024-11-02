@@ -1,19 +1,36 @@
 package config
 
 import (
-	"fmt"
+	"log"
+	"os"
 
-	"github.com/LeastKIds/go_struct/internal/infrastructure/database/connection"
+	"github.com/caarlos0/env/v6"
+	"github.com/joho/godotenv"
 )
 
 const (
 	EnvDevelopment = "development"
 )
 
-func Set() {
-	_, err := connection.NewConnection().Connect()
-	if err != nil {
-		panic(err)
+type Config struct {
+	Env          string `env:"ENV"`
+	DATABASE_URL string `env:"DATABASE_URL"`
+}
+
+func NewConfig() *Config {
+	var config Config
+	switch os.Getenv("ENV") {
+	case EnvDevelopment:
+		if err := godotenv.Load(); err != nil {
+			log.Fatal("Error loading .env file")
+		}
+		if err := env.Parse(&config); err != nil {
+			log.Fatal(err)
+		}
+
+	default:
+		panic("Invalid ENV")
 	}
-	fmt.Println("Connected to database")
+
+	return &config
 }
