@@ -1,7 +1,14 @@
 package database
 
-import "gorm.io/gorm"
+import (
+	"github.com/LeastKIds/go_struct/internal/infrastructure/database/mysql"
+	"gorm.io/gorm"
+)
 
 type IConnection interface {
-	Connect(dsn string) (*gorm.DB, error)
+	Connect() (*gorm.DB, error)
+}
+
+func NewConnection(dsn string) IConnection {
+	return mysql.NewMysql(dsn)
 }
