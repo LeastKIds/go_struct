@@ -1,12 +1,12 @@
 package mapper
 
 import (
-	"github.com/LeastKIds/go_struct/internal/adapter/dto/response"
+	"github.com/LeastKIds/go_struct/internal/domain/entity"
 	"github.com/LeastKIds/go_struct/internal/usecase/dto"
 )
 
 type IUsecaseDummyMapper interface {
-	ToResponse(dto *dto.Dummy) *response.Dummy
+	ToDTO(entity *entity.Dummy) *dto.Dummy
 }
 
 type UsecaseDummyMapper struct{}
@@ -15,10 +15,10 @@ func NewUsecaseDummyMapper() *UsecaseDummyMapper {
 	return &UsecaseDummyMapper{}
 }
 
-func (m *UsecaseDummyMapper) ToResponse(dto *dto.Dummy) *response.Dummy {
-	return &response.Dummy{
-		ID:   dto.ID,
-		Name: dto.Name,
-		Age:  dto.Age,
+func (m *UsecaseDummyMapper) ToDTO(entity *entity.Dummy) *dto.Dummy {
+	return &dto.Dummy{
+		ID:   entity.ID,
+		Name: entity.Name,
+		Age:  entity.Age,
 	}
 }
