@@ -1,0 +1,1 @@
+- adapter와 usecase 간의 데이터 변환 로직
