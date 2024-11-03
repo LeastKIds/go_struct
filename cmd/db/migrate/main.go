@@ -1,13 +1,13 @@
 package main
 
 import (
+	"github.com/LeastKIds/go_struct/internal/domain/entity"
 	"github.com/LeastKIds/go_struct/internal/infrastructure/config"
 	"github.com/LeastKIds/go_struct/internal/infrastructure/database"
-	"github.com/LeastKIds/go_struct/internal/infrastructure/database/model"
 )
 
 var Models = []interface{}{
-	&model.Dummy{},
+	&entity.Dummy{},
 }
 
 func main() {
