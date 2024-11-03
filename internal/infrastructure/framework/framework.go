@@ -18,3 +18,7 @@ type IGroup interface {
 
 	Group(prefix string) IGroup
 }
+
+func NewFramework() IFramework {
+	return NewEchoFramework()
+}
