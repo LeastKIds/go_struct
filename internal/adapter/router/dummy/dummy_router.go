@@ -1,6 +1,9 @@
 package dummy
 
-import "github.com/labstack/echo/v4"
+import (
+	"github.com/LeastKIds/go_struct/internal/adapter/handler/dummy"
+	"github.com/labstack/echo/v4"
+)
 
 type DummyRouter struct {
 	DummyHandler dummy.IDummyHandler
