@@ -2,6 +2,8 @@ package framework
 
 import (
 	"net/http"
+
+	"gorm.io/gorm"
 )
 
 type IFramework interface {
@@ -11,14 +13,18 @@ type IFramework interface {
 }
 
 type IGroup interface {
-	GET(path string, handler func(http.ResponseWriter, *http.Request))
-	POST(path string, handler func(http.ResponseWriter, *http.Request))
-	PUT(path string, handler func(http.ResponseWriter, *http.Request))
-	DELETE(path string, handler func(http.ResponseWriter, *http.Request))
+	GET(path string, handler HandlerFuncWithDB)
+	POST(path string, handler HandlerFuncWithDB)
+	PUT(path string, handler HandlerFuncWithDB)
+	DELETE(path string, handler HandlerFuncWithDB)
 
 	Group(prefix string) IGroup
 }
 
-func NewFramework() IFramework {
-	return NewEchoFramework()
+func NewFramework(db *gorm.DB) IFramework {
+	return NewEchoFramework(db)
 }
+
+type HandlerFuncWithDB func(http.ResponseWriter, *http.Request, *gorm.DB)
+
+type InterceptorFunc func(HandlerFuncWithDB) HandlerFuncWithDB
