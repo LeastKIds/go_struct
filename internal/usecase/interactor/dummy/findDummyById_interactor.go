@@ -6,5 +6,5 @@ import (
 )
 
 func (i *DummyInteractor) FindDummyById(db *gorm.DB, id int64) (*dto.Dummy, error) {
-	return i.repo.Dummy.FindBy(db, scope.ByID(id))
+	return i.repo.Dummy.FindBy(db, i.repo.Scopes.ByID(id))
 }

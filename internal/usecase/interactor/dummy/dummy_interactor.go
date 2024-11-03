@@ -1,6 +1,7 @@
 package dummy
 
 import (
+	"github.com/LeastKIds/go_struct/internal/domain/repository"
 	"github.com/LeastKIds/go_struct/internal/usecase/dto"
 	"gorm.io/gorm"
 )
@@ -10,9 +11,9 @@ type IDummyInteractor interface {
 }
 
 type DummyInteractor struct {
-	repo repository.IRepository
+	repo repository.Repository
 }
 
-func NewDummyInteractor(repo repository.IRepository) *DummyInteractor {
+func NewDummyInteractor(repo repository.Repository) *DummyInteractor {
 	return &DummyInteractor{repo: repo}
 }
