@@ -12,3 +12,11 @@ func DummyToDto(entity *entity.Dummy) *dto.Dummy {
 		Age:  entity.Age,
 	}
 }
+
+func DummyToEntity(dto *dto.Dummy) *entity.Dummy {
+	return &entity.Dummy{
+		ID:   dto.ID,
+		Name: dto.Name,
+		Age:  dto.Age,
+	}
+}

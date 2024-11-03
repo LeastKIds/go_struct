@@ -13,7 +13,7 @@ type Scope = func(db *gorm.DB) *gorm.DB
 
 type ISubRepository[T any] interface {
 	FindBy(db *gorm.DB, scopes ...Scope) (*T, error)
-	Create(db *gorm.DB, entity T) error
+	Create(db *gorm.DB, entity *T) error
 }
 
 type Repository struct {

@@ -23,6 +23,6 @@ func (r *DummyRepository) FindBy(db *gorm.DB, scopes ...repository.Scope) (*enti
 	return &dummy, nil
 }
 
-func (r *DummyRepository) Create(db *gorm.DB, entity entity.Dummy) error {
+func (r *DummyRepository) Create(db *gorm.DB, entity *entity.Dummy) error {
 	return db.Create(&entity).Error
 }
