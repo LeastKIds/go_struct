@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"github.com/LeastKIds/go_struct/internal/usecase/dto"
+	"github.com/LeastKIds/go_struct/internal/domain/entity"
 	"gorm.io/gorm"
 )
 
@@ -17,9 +17,9 @@ type ISubRepository[T any] interface {
 
 type Repository struct {
 	Scopes IScopes
-	Dummy  ISubRepository[dto.Dummy]
+	Dummy  ISubRepository[entity.Dummy]
 }
 
-func NewRepository(scopes IScopes, dummy ISubRepository[dto.Dummy]) *Repository {
+func NewRepository(scopes IScopes, dummy ISubRepository[entity.Dummy]) *Repository {
 	return &Repository{Scopes: scopes, Dummy: dummy}
 }
