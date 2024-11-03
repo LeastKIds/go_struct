@@ -8,6 +8,7 @@ import (
 
 type IDummyInteractor interface {
 	FindDummyById(db *gorm.DB, id int64) (*dto.Dummy, error)
+	CreateDummy(db *gorm.DB, dummy *dto.Dummy) error
 }
 
 type DummyInteractor struct {
