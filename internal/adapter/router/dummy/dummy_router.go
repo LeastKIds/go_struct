@@ -6,14 +6,13 @@ import (
 )
 
 type DummyRouter struct {
-	g       *echo.Group
 	handler handler.IDummyHandler
 }
 
-func NewDummyRouter(g *echo.Group, handler handler.IDummyHandler) *DummyRouter {
-	return &DummyRouter{g: g, handler: handler}
+func NewDummyRouter(handler handler.IDummyHandler) *DummyRouter {
+	return &DummyRouter{handler: handler}
 }
 
-func (r *DummyRouter) Routes() {
-	r.g.GET("/:id", r.handler.GetDummy)
+func (r *DummyRouter) Routes(g *echo.Group) {
+	g.GET("/:id", r.handler.GetDummy)
 }
