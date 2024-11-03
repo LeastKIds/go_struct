@@ -1,15 +1,18 @@
 package dummy
 
-import "github.com/labstack/echo/v4"
+import (
+	interactor "github.com/LeastKIds/go_struct/internal/usecase/interactor/dummy"
+	"github.com/labstack/echo/v4"
+)
 
 type IDummyHandler interface {
 	GetDummy(c echo.Context) error
 }
 
 type DummyHandler struct {
-	DummyUsecase usecase.IDummyUsecase
+	DummyInteractor interactor.IDummyInteractor
 }
 
-func NewDummyHandler(dummyUsecase *usecase.IDummyUsecase) *DummyHandler {
-	return &DummyHandler{DummyUsecase: dummyUsecase}
+func NewDummyHandler(dummyInteractor interactor.IDummyInteractor) *DummyHandler {
+	return &DummyHandler{DummyInteractor: dummyInteractor}
 }
