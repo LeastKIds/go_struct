@@ -7,12 +7,13 @@ import (
 
 type IDummyHandler interface {
 	GetDummy(c echo.Context) error
+	PostDummy(c echo.Context) error
 }
 
 type DummyHandler struct {
 	DummyInteractor interactor.IDummyInteractor
 }
 
-func NewDummyHandler(dummyInteractor interactor.IDummyInteractor) *DummyHandler {
+func NewDummyHandler(dummyInteractor interactor.IDummyInteractor) IDummyHandler {
 	return &DummyHandler{DummyInteractor: dummyInteractor}
 }

@@ -9,7 +9,7 @@ import (
 type DummyRepository struct {
 }
 
-func NewDummyRepository() *DummyRepository {
+func NewDummyRepository() repository.ISubRepository[entity.Dummy] {
 	return &DummyRepository{}
 }
 

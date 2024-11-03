@@ -14,7 +14,7 @@ type Router struct {
 	DummyRouter ISubRouter
 }
 
-func NewRouter(dummyRouter ISubRouter) *Router {
+func NewRouter(dummyRouter ISubRouter) IRouter {
 	return &Router{DummyRouter: dummyRouter}
 }
 
